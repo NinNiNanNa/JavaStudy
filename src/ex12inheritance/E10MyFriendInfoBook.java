@@ -109,9 +109,9 @@ public class E10MyFriendInfoBook {
 	}
 	
 	/*
-	무한루프 조건으로 사용자가 원할때 종료할 수 있는 구조를 만들어준다.
-	break문은 반복문을 탈출시키는 기능이 있으므로 이와같은 무한루프에서 자주 사용한다.
-	main메서드에서는 특별한 기능은 구현하지 않고 프로그램 전반의 흐름에 대해서만 담당한다.
+	메인 메서드는 해당 프로그램의 시작점(Entry point)이므로 복잡한 로직의 구성보다는
+	프로그램의 전반적인 흐름에 대해서만 기술하는것이 좋다.
+	따라서 선택한 메뉴에 따라 핸들러 클래스의 메서드만 호출하는 형태로 구현되어있다.
 	*/
 	public static void main(String[] args) {
 		// 사용자 입력을 위한 인스턴스 생성
@@ -119,6 +119,12 @@ public class E10MyFriendInfoBook {
 		// 기능을 담당하는 핸들러 클래스의 인스턴스 생성
 		FriendInfoHandler handler = new FriendInfoHandler(100);
 		
+		/*
+		무한루프 조건으로 사용자가 원할때 종료할 수 있는 구조를 만들어준다.
+		break문은 반복문을 탈출시키는 기능이 있으므로 이와같은 무한루프에서 자주 사용한다.
+		for(;;) 문을 통해 무한루프를 구현할 수 있으나 반복의 횟수가 명확하지 않은 경우에는
+		주로 while문을 사용한다.
+		*/
 		while(true) {
 			// 1. 메뉴를 출력한다.
 			menuShow();
@@ -178,6 +184,7 @@ class FriendInfoHandler {
 	// 친구 정보 추가
 	public void addFriend(int choice) {
 //		System.out.println("addFriend 호출됨");
+		// 고딩 or 대딩 모두 기본정보가 있으므로 먼저 입력받는다.
 		Scanner scan = new Scanner(System.in);
 		String iName,iPhone,iAddr,iNickname,iMajor;
 		System.out.print("이름:"); iName = scan.nextLine();
