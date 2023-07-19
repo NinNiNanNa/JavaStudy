@@ -7,8 +7,8 @@ Finally
 : 예외발생과 상관없이 try문으로 진입했을때 반드시 실행해야 할 쿠도가 있는 경우 기술하는 블럭인다.
   단, 필수사항은 아니므로 꼭 필요한 경우에만 작성하면된다.
 1. try~catch : 예외를 직접 처리할때
-2. try~catch~finally : 
-3. try~finally : 
+2. try~catch~finally : 예외를 직접 처리 후 실행할 문장이 있을때
+3. try~finally : 예외는 외부로 던지고 예외발생과 상관없이 실행할 문장이 있을때
 */
 public class Ex05Finally {
 
