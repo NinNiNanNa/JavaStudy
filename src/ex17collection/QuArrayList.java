@@ -19,6 +19,7 @@ import common.Student;
 이름:다길동, 나이:30, 학번:2016
 이름:마길동, 나이:40, 학번:2015
 */
+
 public class QuArrayList {
 
 	public static void main(String[] args) {
@@ -39,27 +40,38 @@ public class QuArrayList {
 		list.add(st4);
 			
 		// 1. 검색할 이름을 입력받음
+		boolean isFind = false;
 		Scanner scan = new Scanner(System.in);
 		System.out.print("검색할 이름을 입력하세요:");
-		String searchName = scan.nextLine();
+		String name = scan.nextLine();
 		
 			
 		// 2. 확장for문으로 컬렉션 전체를 접근
-		int deleteIndex = -1;
+		int index = -1;
 		for(Student st : list) {
-			if(searchName.equals(st.getName())) {
-				deleteIndex = list.indexOf(st);
+			if(name.equals(st.getName())) {
+				System.out.println("오버라이딩 한 equals() 호출됨:"+ st.getName());
+				index = list.indexOf(st);
+				isFind = true;
 			}
 		}
 			
 		// 3. 검색결과 유/무에 따라
-//		if(index==) {
-//			
-//		}
 		// 검색결과 있을때…검색된 데이터 삭제
+		if(isFind==true) {
+			list.remove(index);
+			System.out.println("[검색되었습니다]");
+		}
 		// 검색결과 없을때...검색결과가 없다고 출력
+		else {
+			System.out.println("[검색결과 없습니다]");
+		}
 
 		// 4. 전체정보 출력
+		System.out.println("[삭제후 정보출력]");
+		for(Student st : list) {
+			System.out.println(st);
+		}
 	}
 
 
